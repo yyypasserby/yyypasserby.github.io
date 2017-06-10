@@ -1,6 +1,6 @@
 # Installation
 
-## In your Shell
+## In Shell
 
 ```sh
 npm install
@@ -10,7 +10,7 @@ npm run clone
 cp _config.yml.example _config.yml
 ```
 
-## In your `_config.yml`
+## In `_config.yml`
 
 ```yaml
 theme: overdose
