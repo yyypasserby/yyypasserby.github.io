@@ -55,9 +55,9 @@ Now All the dylibs is in /usr/local/lib, we need add them to our projects.
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv/cvaux.hpp>
-
+ 
 using namespace cv;
-
+ 
 int main(int argc, const char * argv[])
 {
     VideoCapture cap(0);

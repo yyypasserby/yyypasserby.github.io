@@ -21,9 +21,23 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 ### Configure
 
+Add following lines to `.zshrc`
+
 ```sh
 plugins=(git cpp autojump osx)
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+```
+
+### zsh-autosuggestions
+
+```
+git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+```
+
+Add following lines to `.zshrc`
+
+```sh
+plugins=(zsh-autosuggestions)
 ```
 
 ## Oh My Tmux
@@ -121,7 +135,7 @@ call glaive#Install()
 Glaive codefmt plugin[mappings]
 Glaive codefmt google_java_executable="java -jar /path/to/google-java-format-VERSION-all-deps.jar"
 Glaive codefmt clang_format_style="google"
-
+ 
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
@@ -133,7 +147,7 @@ augroup autoformat_settings
   autocmd FileType python AutoFormatBuffer yapf
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
 augroup END
-
+ 
 " vim-javascript
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 ```

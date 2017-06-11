@@ -13,6 +13,7 @@ tags:
 func compute(fn func(float64, float64) float64) float64 {
 	return fn(3, 4)
 }
+ 
 func main() {
 	hypot := func(x, y float64) float64 {
 		return math.Sqrt(x*x + y*y)
@@ -20,6 +21,7 @@ func main() {
 	fmt.Println(hypot(5, 12))
 	fmt.Println(compute(hypot))
 }
+ 
 func adder() func(int) int {
 	sum := 0
 	return func(x int) int {
@@ -27,6 +29,7 @@ func adder() func(int) int {
 		return sum
 	}
 }
+ 
 pos, neg = adder(), adder()
 pos(2) // sum = 2
 neg(-2) // sum = -2
@@ -75,16 +78,19 @@ neg(-2) // sum = -2
 type Vertex struct {
 	X, Y float64
 }
+ 
 v := Vertex{3, 4}
 // v: = Vertex{X: 1} // Y: 0 is implicit
 p := &Vertex{3, 4}
 func (v Vertex) Abs() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
+ 
 func (v *Vertex) Scale(f float64) {
 	v.X = v.X * f
 	v.Y = v.Y * f
 }
+ 
 v.Scale(10) // v.X = 30, v.Y = 40
 v.Abs() // 50
 ```
@@ -103,14 +109,17 @@ v.Abs() // 50
 type I interface {
 	M()
 }
+ 
 type T struct {
 	S string
 }
+ 
 // This method means type T implements the interface I,
 // but we don't need to explicitly declare that it does so.
 func (t T) M() {
 	fmt.Println(t.S)
 }
+ 
 func do(i interface{}) {
 	switch v := i.(type) {
 	case int:
@@ -121,10 +130,11 @@ func do(i interface{}) {
 		fmt.Printf("I don't know about type %T!\n", v)
 	}
 }
+ 
 func main() {
 	var a I = T{"hello"}
 	a.M()
-	
+ 
 	var i interface{} = "hello"
 	s := i.(string)
 	fmt.Println(s)
@@ -134,14 +144,16 @@ func main() {
 	fmt.Println(f, ok)
 	f = i.(float64) // panic
 	fmt.Println(f)
-	
+ 
 	// error code
 	inte, err := strconv.Atoi("42")
 	if err != nil {
     		fmt.Printf("couldn't convert number: %v\n", err)
     		return
 	}
+ 
 	fmt.Println("Converted integer:", inte)
+ 
 	// reader
 	r := strings.NewReader("Hello, Reader!")
 	b := make([]byte, 8)
@@ -168,13 +180,16 @@ func main() {
 var a [10]int // [n]T is an array of n values of T, and it will give you ten 0s
 var s []int = a[1:5] // []T is a slice of an array
 var as []int = a[1:] // a[5:]
+ 
 ma := make([]int, 0. 5) // len(ma)=0, cap(ma)=5
 // Create a tic-tac-toe board.
+ 
 board := [][]string{
 	[]string{"_", "_", "_"},
 	[]string{"_", "_", "_"},
 	[]string{"_", "_", "_"},
 }
+ 
 // The players take turns.
 board[0][0] = "X"
 board[2][2] = "O"
@@ -197,10 +212,12 @@ var m = map[string]string {
 	"Debug": "sucks",
 	"Test" : "rocks",
 }
+ 
 v, ok := m["Test"] // v = "rocks", ok = True
 v, ok = m["Deploy"] // v = "", ok = False
 m["Deploy"] = "rocks"
 delete(m, "Deploy")
+ 
 func WordCount(s string) map[string]int {
 	ret := map[string]int {}
 	fields := strings.Fields(s)
@@ -223,6 +240,7 @@ go f(x, y, z)
 ch <- v // Send v to channel ch.
 v := <-ch // Receive from ch, and assign value to v.
 ch := make(chan int, 1)
+ 
 // close and range
 func fibonacci(n int, c chan int) {
 	x, y := 0, 1
@@ -232,6 +250,7 @@ func fibonacci(n int, c chan int) {
 	}
 	close(c)
 }
+ 
 func main() {
 	c := make(chan int, 10)
 	go fibonacci(cap(c), c)
@@ -239,6 +258,7 @@ func main() {
 		fmt.Println(i)
 	}
 }
+ 
 // select
 func fibonacci(c, quit chan int) {
 	x, y := 0, 1
@@ -252,6 +272,7 @@ func fibonacci(c, quit chan int) {
 		}
 	}
 }
+ 
 func main() {
 	c := make(chan int)
 	quit := make(chan int)
@@ -263,11 +284,13 @@ func main() {
 	}()
 	fibonacci(c, quit)
 }
+ 
 // SafeCounter is safe to use concurrently.
 type SafeCounter struct {
 	v   map[string]int
 	mux sync.Mutex
 }
+ 
 // Inc increments the counter for the given key.
 func (c *SafeCounter) Inc(key string) {
 	c.mux.Lock()
@@ -275,6 +298,7 @@ func (c *SafeCounter) Inc(key string) {
 	c.v[key]++
 	c.mux.Unlock()
 }
+ 
 // Value returns the current value of the counter for the given key.
 func (c *SafeCounter) Value(key string) int {
 	c.mux.Lock()
