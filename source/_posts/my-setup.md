@@ -120,6 +120,7 @@ Add settings to `.vimrc.local`
 call glaive#Install()
 Glaive codefmt plugin[mappings]
 Glaive codefmt google_java_executable="java -jar /path/to/google-java-format-VERSION-all-deps.jar"
+Glaive codefmt clang_format_style="google"
 
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
@@ -132,6 +133,9 @@ augroup autoformat_settings
   autocmd FileType python AutoFormatBuffer yapf
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
 augroup END
+
+" vim-javascript
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 ```
 
 Unbind existing key mapping of `<Leader>=` in `.vimrc`
