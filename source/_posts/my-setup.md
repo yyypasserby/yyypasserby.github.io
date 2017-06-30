@@ -28,9 +28,9 @@ plugins=(git cpp autojump osx)
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 ```
 
-### zsh-autosuggestions
+#### [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 
-```
+```sh
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 ```
 
@@ -118,7 +118,7 @@ Open vim and restart YcmServer
 :YcmRestartServer
 ```
 
-#### [optional] Add google/vim-codefmt
+#### [optional] Add [google/vim-codefmt](https://github.com/google/vim-codefmt)
 
 Add plugins to `.vimrc.bundles.local` and run `:PluginInstall`
 
