@@ -17,7 +17,12 @@ https://github.com/robbyrussell/oh-my-zsh
 
 ```sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+brew install autojump
 ```
+
+##### Installation Permission Problem
+
+(Github)[https://github.com/Homebrew/brew/issues/3228]
 
 ### Configure
 
@@ -26,6 +31,12 @@ Add following lines to `.zshrc`
 ```sh
 plugins=(git cpp autojump osx)
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+
+if [[ "$TERM_PROGRAM" == "nuclide" ]]; then
+  export EDITOR='atom --wait'
+else
+  export EDITOR=vim # your favorite editor here
+fi
 ```
 
 #### [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
@@ -52,6 +63,12 @@ git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
 tmux source-file ~/.tmux.conf
+```
+
+```
+tls='tmux ls'
+tat='tmux attach -t'
+trn='tmux rename'
 ```
 
 ## spf13-vim
