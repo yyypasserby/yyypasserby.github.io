@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="en">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Practices and Skills from NPM to Angular | 
+        
+        LearnByPractice
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="May your choices reflect your hopes, not your fears.">
+    <meta name="keywords" content="null,bower,angular,npm,yeoman,grunt">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.en.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="LearnByPractice">
+    <meta name="msapplication-starturl" content="https://yyypasserby.github.io/2015/06/03/npm-yo-grunt-bower-angular/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="LearnByPractice">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://yyypasserby.github.io/2015/06/03/npm-yo-grunt-bower-angular/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Practices and Skills from NPM to Angular | LearnByPractice">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="May your choices reflect your hopes, not your fears.">
+    <meta property="og:article:tag" content="bower"> <meta property="og:article:tag" content="angular"> <meta property="og:article:tag" content="npm"> <meta property="og:article:tag" content="yeoman"> <meta property="og:article:tag" content="grunt"> 
+
+    
+        <meta property="article:published_time" content="Wed Jun 03 2015 11:22:33 GMT-0700">
+        <meta property="article:modified_time" content="Fri Jul 20 2018 14:36:39 GMT-0700">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://yyypasserby.github.io/2015/06/03/npm-yo-grunt-bower-angular/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://yyypasserby.github.io/2015/06/03/npm-yo-grunt-bower-angular/index.html",
+    "headline": "Practices and Skills from NPM to Angular",
+    "datePublished": "Wed Jun 03 2015 11:22:33 GMT-0700",
+    "dateModified": "Fri Jul 20 2018 14:36:39 GMT-0700",
+    "author": {
+        "@type": "Person",
+        "name": "Yiyun Yao",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "LearnByPractice",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",bower,angular,npm,yeoman,gruntnull",
+    "description": "May your choices reflect your hopes, not your fears.",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#npm"><span class="post-toc-number">1.</span> <span class="post-toc-text">npm</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#yo-amp-generator-karma-amp-generator-angular"><span class="post-toc-number">2.</span> <span class="post-toc-text">yo &amp; generator-karma &amp; generator-angular</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#bower"><span class="post-toc-number">3.</span> <span class="post-toc-text">bower</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#grunt"><span class="post-toc-number">4.</span> <span class="post-toc-text">grunt</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Why-we-need-an-automator"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Why we need an automator?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Add-ignore-symbols-to-jshint"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">Add ignore symbols to jshint</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Add-css-dependent-resources-copied"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">Add css-dependent resources copied</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Remove-dynamic-image-path-from-Filerev"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">Remove dynamic image path from Filerev</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Test-modification"><span class="post-toc-number">4.1.4.</span> <span class="post-toc-text">Test modification</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Conclusion"><span class="post-toc-number">5.</span> <span class="post-toc-text">Conclusion</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Practices and Skills from NPM to Angular
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Yiyun Yao</strong>
+        <span>Jun 03, 2015</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/angular/">angular</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/bower/">bower</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/grunt/">grunt</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/npm/">npm</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/yeoman/">yeoman</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Practices and Skills from NPM to Angular&url=https://yyypasserby.github.io/2015/06/03/npm-yo-grunt-bower-angular/index.html&pic=https://yyypasserby.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Practices and Skills from NPM to Angular&url=https://yyypasserby.github.io/2015/06/03/npm-yo-grunt-bower-angular/index.html&via=Yiyun Yao" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://yyypasserby.github.io/2015/06/03/npm-yo-grunt-bower-angular/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://yyypasserby.github.io/2015/06/03/npm-yo-grunt-bower-angular/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><img src="/images/npm-yo-grunt-bower-angular/angular.jpg" alt="AngularJS"></p>
+<p>Recently, I am refactorying some of my projects. It may be more proper to say that the projects were rewritten because I have update the technical solutions that is much cooler.</p>
+<p>In this blog, I am going to talk about some obstacles I met in building an <a href="https://angularjs.org/" target="_blank" rel="noopener">Angular</a> App and how I solve them. This will not contain real coding technics in how to write an app, but some useful tools or components that may help to write Angular more comfortably and conveniently.</p>
+<p>Ok, let’s just begin with how to design the project structure of Angular.</p>
+<p>Angular can be used in many ways, it provides a lot of useful functions and directives for you to build a web application, which also means Angular is somewhat heavier than other framework. It mainly solves some key problems in the web front-end development, like modules, customizing tags and etc., and assembles all these solutions into a big framework. Consequently, you can use Angular to render your web page and use controllers to bind your data, just like the old ways, or you may define your own directives and services to build an web app in a new way. If you are the second-way supporter, I’m going to talk about a good way to structure your apps.</p>
+<p>The main tools we will use next: npm, yo, grunt, bower, angular-generator.</p>
+<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><p><a href="https://github.com/npm/npm" target="_blank" rel="noopener">npm</a> is an amazing tool for you if your project is related to <code>Javascript</code>. With the development of <code>Javascript</code>, npm is also becoming more widely used in development. But this time, it is just a tool installer, we will just use it to prepare the tool for our app.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g grunt-cli bower yo generator-karma generator-angular</span><br></pre></td></tr></table></figure>
+<p><code>-g</code> means that you are going to install these package in a global scope. You can also remove this option, however, I really recommend you to add it because these are all tools which we will use next, even in the future when you need to build an Angular App and they will not contaminate the namespace between the projects.</p>
+<p>If you decide to install it in a global scope, it is helpful to customize the directory to store the global resources.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">set</span> config prefix path/to/your/directory/[node-global]</span><br><span class="line">npm <span class="built_in">set</span> config cache path/to/your/directory/[node-cache]</span><br></pre></td></tr></table></figure>
+<p><code>[]</code> means you can do in that way to organize your npm global directory and I think it is elegant. You could also find the configuration file <code>~/.npmrc</code> and define these in it.</p>
+<p>The installation process may be very slow in China. You could use an <a href="http://npm.taobao.org/" target="_blank" rel="noopener">npm mirror</a> maintained by Taobao to improve the speed.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">registry=https://registry.npm.taobao.org/</span><br></pre></td></tr></table></figure>
+<h2 id="yo-amp-generator-karma-amp-generator-angular"><a href="#yo-amp-generator-karma-amp-generator-angular" class="headerlink" title="yo &amp; generator-karma &amp; generator-angular"></a>yo &amp; generator-karma &amp; generator-angular</h2><p><a href="http://yeoman.io/" target="_blank" rel="noopener">Yeoman</a> is a tool to give you an easy way to build a basic structure for the application. It predefines some kinds of structure of a particular app. <a href="https://github.com/yeoman/generator-karma" target="_blank" rel="noopener">generator-karma</a> and <a href="https://github.com/yeoman/generator-angular" target="_blank" rel="noopener">generator-angular</a> are those predefined structures and they are also need to be installed.</p>
+<p><a href="http://karma-runner.github.io/0.12/index.html" target="_blank" rel="noopener">Karma</a> is a JS unit-test framework. You can define some test in the karma.conf.js and run <code>karma start karma.conf.js</code> to make a automatic test for your app. It is especiallly useful when your project is based on some big frameworks like Angular, because it can test every small module you define like a directve, a filter or a controller, and you can integrate your web app continuously and errorlessly. Also it can be registered in a <strong>grunt task</strong> which can be executed automatically once you want to commit a version.</p>
+<p>These two generator not only create a directory structure for each of their frameworks. It also defines what needs to be involved in this project. </p>
+<p>Let’s use Angular as an example. When you finishes installing the yo and angular-generator, you can now set out to build an Angular App.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir angular-app</span><br><span class="line"><span class="built_in">cd</span> angular-app</span><br><span class="line">yo angular</span><br></pre></td></tr></table></figure>
+<p>After, you can set some setting to your angular project. Yo will automactically download the dependencies by <code>bower</code> and inject them in your project using wiredep by <code>grunt</code>. Also some framework like <code>karma</code> mentioned above will be installed.</p>
+<p>yo &amp; angular-generator also do other awesomethings. It will organize the project even you are going to add something to it, like if you are going to add an filter to this app.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yo angular:filter your_filter_name</span><br></pre></td></tr></table></figure>
+<p>Yo will create a directory in your <code>scripts</code> directory and create a file named <code>your_filter_name.js</code> in it. This filter will also be inject into your <code>index.html</code> automatically using <code>wiredep</code>. You have to pay attention to your filter name, <code>-</code> based and customized prefix is recommended. For example,</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yo angular:directive my-quiz-directive</span><br></pre></td></tr></table></figure>
+<p>A <code>my-quiz-directive.js</code> file will be created and a <code>myQuizDirective</code> directive will be added to Angular. So <code>my-quiz-directive</code> can be used in html like <code>&lt;my-quiz-directive&gt;&lt;/my-quiz-directive&gt;</code> or other Angular recommended ways.</p>
+<h2 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h2><p>There is not much to talk about <a href="http://bower.io/" target="_blank" rel="noopener">bower</a>. It is first introduced in this <a href="{filename}/2014-12-18-django-and-bower.md">blog</a>. In the Angular app generated by yo, only one thing need to be carefully maintained, <code>bower.json</code>. If you want to use the <code>wiredep</code> to automate your project dependency, every time your installed a library or a framework by bower, you must use <code>--save</code> option to update the <code>bower.json</code> file, and the grunt will watch the change of <code>bower.json</code> and inject all the dependency in it to the <code>index.html</code></p>
+<h2 id="grunt"><a href="#grunt" class="headerlink" title="grunt"></a>grunt</h2><p><a href="http://gruntjs.com/" target="_blank" rel="noopener">grunt</a> is an automator in web front-end development.</p>
+<h3 id="Why-we-need-an-automator"><a href="#Why-we-need-an-automator" class="headerlink" title="Why we need an automator?"></a>Why we need an automator?</h3><p>After several years of exploration in web dev, engineers find many best practices in web front-end dev, including some effort to do with performance and some with engineering. And all these tasks like test, wiredep, cssmin, htmlmin, uglify, all can be done automatically. So we just need a way to define how it works and then let a program does it for us.</p>
+<p>grunt is that kind of thing. Also <a href="http://gulpjs.com/" target="_blank" rel="noopener">gulp</a> can do the same thing, but lighter.</p>
+<p>You can define the tasks in <code>Gruntfile.js</code>, most of the tasks you need is already predefined in grunt, so you just need to call them by name.</p>
+<p>Talking about our app, the basic tasks generated automactically by yo are following in my space:</p>
+<ul>
+<li>clean</li>
+<li>wiredep</li>
+<li>useminPrepare</li>
+<li>concurrent</li>
+<li>autoprefixer</li>
+<li>concat</li>
+<li>ngAnnotate</li>
+<li>copy</li>
+<li>cdnify</li>
+<li>cssmin</li>
+<li>uglify</li>
+<li>filerev</li>
+<li>usemin</li>
+<li>htmlmin</li>
+<li>karma</li>
+<li>jshint</li>
+<li>watch</li>
+</ul>
+<p>You can reorganize these module into tasks and call them.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt task_name</span><br></pre></td></tr></table></figure>
+<p>Several changes I made to the default <code>Gruntfile.js</code>:</p>
+<h4 id="Add-ignore-symbols-to-jshint"><a href="#Add-ignore-symbols-to-jshint" class="headerlink" title="Add ignore symbols to jshint"></a>Add ignore symbols to jshint</h4><p><a href="http://jshint.com/" target="_blank" rel="noopener">jshint</a> is to check the correctness of your js code. However, you may find some warnings when you run jshint, this may abort the whole grunt tasks if you do not add <code>--force</code> options. You can modify <code>.jshintrc</code> file in the current project directory and add your symbols ignored by the jshint.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"globals"</span>: &#123;</span><br><span class="line">        <span class="attr">"angular"</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">"$"</span>: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This means <code>angular</code> and <code>$</code> symbols will be ignored when checking the js syntax.</p>
+<h4 id="Add-css-dependent-resources-copied"><a href="#Add-css-dependent-resources-copied" class="headerlink" title="Add css-dependent resources copied"></a>Add css-dependent resources copied</h4><p>When you use some front-end framework like <a href="http://getbootstrap.com/" target="_blank" rel="noopener">bootstrap</a>, you may encounter some problems like web page cannot locate the image resources. That is because in the production environment the theme will be copied, only css and js. So you must modify the gruntfile.</p>
+<p>This action is provided by the <code>copy</code> module in <code>grunt</code>.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    expand: true,</span><br><span class="line">    dot: true,</span><br><span class="line">    cwd: 'path/to/your/cwd',</span><br><span class="line">    dest: 'path/to/your/dest',</span><br><span class="line">    src: ['paths/to/your/src']</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You can add above structure to the <code>copy:dist:files</code> in <code>Gruntfile.js</code>, add the all the srcs your defined in <code>path/to/your/cwd/paths/to/your/src</code> will be copied to <code>path/to/your/dest/paths/to/your/src</code>.</p>
+<h4 id="Remove-dynamic-image-path-from-Filerev"><a href="#Remove-dynamic-image-path-from-Filerev" class="headerlink" title="Remove dynamic image path from Filerev"></a>Remove dynamic image path from Filerev</h4><p>Filerev is to renames files for browser caching purposes. However, if you have some image path is dynamically rendered by the attribute defined by user, it should be excluded.</p>
+<p>This function is provided by <code>filerev</code> module in grunt.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">filerev: &#123;</span><br><span class="line">    dist: &#123;</span><br><span class="line">    src: [</span><br><span class="line">        '&lt;%= yeoman.dist %&gt;/scripts/&#123;,*/&#125;*.js',</span><br><span class="line">        '&lt;%= yeoman.dist %&gt;/styles/&#123;,*/&#125;*.css',</span><br><span class="line">        '&lt;%= yeoman.dist %&gt;/images/&#123;,*/&#125;*.&#123;png,jpg,jpeg,gif,webp,svg&#125;',</span><br><span class="line">        '&lt;%= yeoman.dist %&gt;/styles/fonts/*'</span><br><span class="line">    ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You need to remove the src from it or redefine the static resources path for browser caching purposes.</p>
+<h4 id="Test-modification"><a href="#Test-modification" class="headerlink" title="Test modification"></a>Test modification</h4><p>If you use the yo way to create directives, your test case is also generated in the <code>test</code> directory. Consequently, you should write your own test cases, not <code>awesomeThings</code> any more. :-)</p>
+<p>Also some modules which need not to be tested should be remove in <code>karma.conf.js</code>.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>With all the tools, to me, I feel like I have a commandline-based IDE. Also if you preferred a GUI-way to develop, you can choose many other <strong>real</strong> IDE, like <a href="https://www.jetbrains.com/webstorm/" target="_blank" rel="noopener">Webstorm</a>.</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/05/31/my-setup/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Newer
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2015/05/30/project-seu-history-angular/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Yiyun Yao's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        youremail@email.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                Home
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    Archives
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/06/">June 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">May 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/06/">June 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/05/">May 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">April 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/03/">March 2015<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2014/12/">December 2014<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2014/11/">November 2014<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            Theme - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>LearnByPractice
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?d+XW6aNuIPgOn1iA7NnB4g==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
