@@ -5,6 +5,7 @@ categories:
   - setup
 tags:
   - opencv
+thumbnail: /img/opencv-settings-on-mac/opencv.png
 ---
 
 ## Install homebrew

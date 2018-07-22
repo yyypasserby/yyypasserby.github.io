@@ -7,6 +7,7 @@ tags:
   - zsh
   - tmux
   - vim
+thumbnail: /img/my-setup/keyboard.png
 ---
 
 ## Oh My Zsh

@@ -7,9 +7,8 @@ categories:
 tags:
   - django
   - deploy
+thumbnail: /img/django-on-heroku/django.png
 ---
-
-![Django](/images/django-on-heroku/django.png)
 
 [Django 1.7](https://www.djangoproject.com/) has been long released and its new features of migrations make our web development much easier when dealing with DBs.
 

@@ -10,9 +10,8 @@ tags:
   - grunt
   - bower
   - angular
+thumbnail: /img/npm-yo-grunt-bower-angular/angular.jpg
 ---
-
-![AngularJS](/images/npm-yo-grunt-bower-angular/angular.jpg)
 
 Recently, I am refactorying some of my projects. It may be more proper to say that the projects were rewritten because I have update the technical solutions that is much cooler.
 

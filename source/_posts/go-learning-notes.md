@@ -5,6 +5,7 @@ categories:
   - practice
 tags:
   - golang
+thumbnail: /img/go-learning-notes/go.png
 ---
 
 ## Functions

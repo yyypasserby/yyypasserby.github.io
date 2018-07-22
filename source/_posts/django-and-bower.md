@@ -6,9 +6,8 @@ categories:
 tags:
   - django
   - bower
+thumbnail: /img/django-and-bower/django.png
 ---
-
-![Django](/images/django-and-bower/django.png)
 
 As a front-end developer, most of you may know [bower](http://bower.io) these days. Bower is a powerful tools to make your front-end more modular and easy to manage.
 
