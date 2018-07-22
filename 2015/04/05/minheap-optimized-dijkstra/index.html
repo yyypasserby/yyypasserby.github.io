@@ -268,9 +268,9 @@
         "name": "Yiyun Yao",
         "image": {
             "@type": "ImageObject",
-            "url": "/img/avatar.png"
+            "url": "/img/avatar.jpg"
         },
-        "description": "Hi, nice to meet you"
+        "description": "May your choices reflect your hopes, not your fears."
     },
     "publisher": {
         "@type": "Organization",
@@ -346,7 +346,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#The-simple-version-of-Dijkstra"><span class="post-toc-number">1.</span> <span class="post-toc-text">The simple version of Dijkstra</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Minheap-Optimized-Dijkstra"><span class="post-toc-number">2.</span> <span class="post-toc-text">Minheap-Optimized Dijkstra</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#The-simple-version-of-Dijkstra"><span class="post-toc-text">The simple version of Dijkstra</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Minheap-Optimized-Dijkstra"><span class="post-toc-text">Minheap-Optimized Dijkstra</span></a></li></ol>
     </ul>
     
 
@@ -392,7 +392,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -465,12 +465,6 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://yyypasserby.github.io/2015/04/05/minheap-optimized-dijkstra/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                Share to Google+
-            </li>
-        </a>
-    
 
     <!-- Share LinkedIn -->
     
@@ -492,23 +486,63 @@
     
         <p>In Microsoft campus recuitment contest, there is a problem which could use <a href="http://en.wikipedia.org/wiki/Dijkstra&#39;s_algorithm" target="_blank" rel="noopener">Dijkstra shortest path algorithm</a> to solve. And I write a version whose time complexity is <strong>O(n2)</strong> in the contest, however, that makes me feel not very good. So I decide to have a good review of some basic algorithms.</p>
 <h2 id="The-simple-version-of-Dijkstra"><a href="#The-simple-version-of-Dijkstra" class="headerlink" title="The simple version of Dijkstra"></a>The simple version of Dijkstra</h2><p>Dijkstra shortest path algorithms is the fastest single point shortest pathfinding algorithms so far. And it is very easy to program. The basic pseudo code is as follows.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Node S = the Start node</span><br><span class="line">Set M = the set contains those nodes have already find the shortest path to S</span><br><span class="line">Set N = the set contains those nodes have <span class="keyword">not</span> find the shortest path to S yet</span><br><span class="line">Array d = the current shortest path to S</span><br><span class="line">Function w(x, y) = <span class="keyword">return</span> the distance between x <span class="keyword">and</span> y</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> each i <span class="keyword">in</span> d:</span><br><span class="line">    d(i) = infinite</span><br><span class="line">d(S) = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> N <span class="keyword">is</span> <span class="keyword">not</span> empty:</span><br><span class="line">    v = Extract_min(N)</span><br><span class="line">    <span class="keyword">for</span> each node i <span class="keyword">in</span> N:</span><br><span class="line">        <span class="keyword">if</span> d(i) &gt; d(v) + w(v, i):</span><br><span class="line">            d(i) = d(v) + w(v, i)</span><br><span class="line">    add v to M</span><br></pre></td></tr></table></figure>
+<pre><code class="python">Node S = the Start node
+Set M = the set contains those nodes have already find the shortest path to S
+Set N = the set contains those nodes have not find the shortest path to S yet
+Array d = the current shortest path to S
+Function w(x, y) = return the distance between x and y
+
+for each i in d:
+    d(i) = infinite
+d(S) = 0
+for N is not empty:
+    v = Extract_min(N)
+    for each node i in N:
+        if d(i) &gt; d(v) + w(v, i):
+            d(i) = d(v) + w(v, i)
+    add v to M
+</code></pre>
 <p>So basic idea of Dijsktra is that we must find the current min value to the origin <strong>S</strong> and gradually update the value of distance from other nodes to the origin <strong>S</strong>. Actually, we find the only point that could be optimized is the function <code>Extract_min</code>. So the problem comes to how to extract a min value from an array.</p>
 <p>In a very common style of thinking, we will consider the algorithm like this.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Extract_min(d):</span><br><span class="line">    v, min = infinite</span><br><span class="line">    <span class="keyword">for</span> each i <span class="keyword">in</span> d:</span><br><span class="line">        <span class="keyword">if</span> d(i) &lt; min:</span><br><span class="line">            min = d(i)</span><br><span class="line">            v = i</span><br><span class="line">    <span class="keyword">return</span> i</span><br></pre></td></tr></table></figure>
+<pre><code class="python">function Extract_min(d):
+    v, min = infinite
+    for each i in d:
+        if d(i) &lt; min:
+            min = d(i)
+            v = i
+    return i
+</code></pre>
 <p>This algorithm use the time complexity of <strong>O(n)</strong> to find a min value, is not so acceptable if the number of nodes is large. In fact, we really know a way to optimize this operation, that is a <strong>heap</strong>.</p>
 <p>Heap is a kind of data structure that can get the min/max element of a set of things. The time complexity of pop/push an element is <strong>O(logn)</strong> is a good optimization compare to the sequential compare. In <strong>C++</strong>, there are also some useful functions to implement the operations.</p>
 <p>In <strong>C++</strong>, there is no a practical data structure named <strong>heap</strong>, like <code>vector</code>, <code>set</code> or <code>unordered_map</code>. However, something related to the max heap named priority queue is an <strong>STL</strong> container. So how are the heap implemented? See the following functions.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make_heap(<span class="built_in">vector</span>&lt;T&gt;::iterator begin, <span class="built_in">vector</span>&lt;T&gt;::iterator end);</span><br><span class="line">push_heap(<span class="built_in">vector</span>&lt;T&gt;::iterator begin, <span class="built_in">vector</span>&lt;T&gt;::iterator end);</span><br><span class="line">pop_heap(<span class="built_in">vector</span>&lt;T&gt;::iterator begin, <span class="built_in">vector</span>&lt;T&gt;::iterator end);</span><br></pre></td></tr></table></figure>
+<pre><code class="cpp">make_heap(vector&lt;T&gt;::iterator begin, vector&lt;T&gt;::iterator end);
+push_heap(vector&lt;T&gt;::iterator begin, vector&lt;T&gt;::iterator end);
+pop_heap(vector&lt;T&gt;::iterator begin, vector&lt;T&gt;::iterator end);
+</code></pre>
 <p>These three functions is all we need to implement a heap. The three functions also can accept another parameter named <strong>Compare</strong>, which determines two problems, max or min and which attributes are to compare. And this function is very important for us to customized the STL function so that we could use heap to optimize Dijkstra algorithm.</p>
 <h2 id="Minheap-Optimized-Dijkstra"><a href="#Minheap-Optimized-Dijkstra" class="headerlink" title="Minheap-Optimized Dijkstra"></a>Minheap-Optimized Dijkstra</h2><p>Ok, let’s just start to optimized the <code>Extract_min</code> function.</p>
 <p>First, we also need to initialize a <strong>vector</strong>, which contains the distance of every nodes from the origin S.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; d;</span><br><span class="line">d.resize(node_size + <span class="number">1</span>, make_pair(<span class="number">0</span>, INT_MAX));</span><br><span class="line"><span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp;kv : d) &#123;</span><br><span class="line">    k.first = ++cnt;</span><br><span class="line">&#125;</span><br><span class="line">d[begin].second = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<pre><code class="cpp">vector&lt;pair&lt;int, int&gt;&gt; d;
+d.resize(node_size + 1, make_pair(0, INT_MAX));
+int cnt = 0;
+for(auto &amp;kv : d) {
+    k.first = ++cnt;
+}
+d[begin].second = 0;
+</code></pre>
 <p>We use the index to represent the nodes index in the graph which begins from 1. And the first node extracted from the node set must be the origin <strong>S</strong> itself. So we change the value of <strong>S</strong> in <strong>d</strong> to <strong>ZERO</strong>.</p>
 <p>Second, we need a loop to find if there are still things in the <strong>Set N</strong>, and also to <code>Extract_min</code> from the set of number.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(!d.empty()) &#123;</span><br><span class="line">    make_heap(d.begin(), d.end(), dijkstra_min_heap);</span><br><span class="line">    pop_heap(d.begin(), d.end(), dijkstra_min_heap);</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="cpp">while(!d.empty()) {
+    make_heap(d.begin(), d.end(), dijkstra_min_heap);
+    pop_heap(d.begin(), d.end(), dijkstra_min_heap);
+    ...
+}
+</code></pre>
 <p>These two key statements are to optimized the <code>Extract_min</code> function, the <code>pop_heap</code> function will put the min or max element to the end of the vector, so we just need to get the element from the vector’s back. And <code>dijkstra_min_heap</code> is just as follow.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dijkstra_min_heap</span><span class="params">(<span class="keyword">const</span> pii &amp;a, <span class="keyword">const</span> pii &amp;b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.second &gt; b.second;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="cpp">bool dijkstra_min_heap(const pii &amp;a, const pii &amp;b) {
+    return a.second &gt; b.second;
+}
+</code></pre>
 <p>So, when we use the <strong>STL</strong>, it is easy for us to implement some algorithms fast and accurate.</p>
 
         
@@ -544,7 +578,7 @@
 
     <!-- Next Nav -->
     
-        <a href="/2015/03/17/project-compiler-lab/" id="post_nav-older" class="next-content">
+        <a href="/2015/03/17/project-online-bookshop/" id="post_nav-older" class="next-content">
             Older
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -582,12 +616,12 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Yiyun Yao's avatar">
+        <img src="/img/avatar.jpg" alt="Yiyun Yao's avatar">
     </div>
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
+        yiyunyao@live.com
         <b class="caret"></b>
     </a>
 </div>
@@ -644,8 +678,33 @@
 
     <!-- Categories  -->
     
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                Categories
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/practice/">practice<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/project/">project<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/setup/">setup<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/web/">web<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/web/backend/">backend<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/web/frontend/">frontend<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
 
     <!-- Pages  -->
+    
+        <li>
+            <a href="/resume" title="Resume">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                Resume
+            </a>
+        </li>
+        
     
 
     <!-- Article Number  -->
@@ -720,29 +779,11 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -750,14 +791,32 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Instagram -->
     
+        <a href="https://www.instagram.com/yyypasserby/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
 
     <!-- Tumblr -->
     
 
     <!-- Github -->
     
+        <a href="https://github.com/yyypasserby" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
 
     <!-- LinkedIn -->
+    
+        <a href="https://www.linkedin.com/in/yyypasserby/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-linkedin">
+                <span class="visuallyhidden">LinkedIn</span>
+            </button><!--
+     --></a>
     
 
     <!-- Zhihu -->
@@ -836,6 +895,10 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
 
 
 
@@ -858,6 +921,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
 
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
 
 <!-- Window Load -->
 <!-- add class for prettify -->
@@ -868,6 +935,10 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
     
 </script>
 

@@ -239,7 +239,7 @@
 
     
         <meta property="article:published_time" content="Sun Dec 21 2014 11:22:33 GMT-0800">
-        <meta property="article:modified_time" content="Fri Jul 20 2018 14:36:39 GMT-0700">
+        <meta property="article:modified_time" content="Sat Jul 21 2018 16:38:28 GMT-0700">
     
 
     <!-- The Twitter Card protocol -->
@@ -262,15 +262,15 @@
     "mainEntityOfPage": "https://yyypasserby.github.io/2014/12/21/django-on-heroku/index.html",
     "headline": "Deploying Django 1.7 to Heroku",
     "datePublished": "Sun Dec 21 2014 11:22:33 GMT-0800",
-    "dateModified": "Fri Jul 20 2018 14:36:39 GMT-0700",
+    "dateModified": "Sat Jul 21 2018 16:38:28 GMT-0700",
     "author": {
         "@type": "Person",
         "name": "Yiyun Yao",
         "image": {
             "@type": "ImageObject",
-            "url": "/img/avatar.png"
+            "url": "/img/avatar.jpg"
         },
-        "description": "Hi, nice to meet you"
+        "description": "May your choices reflect your hopes, not your fears."
     },
     "publisher": {
         "@type": "Organization",
@@ -346,7 +346,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Prerequisites"><span class="post-toc-number">1.</span> <span class="post-toc-text">Prerequisites</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Configure-Heroku"><span class="post-toc-number">2.</span> <span class="post-toc-text">Configure Heroku</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Procfile"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Procfile</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#requirements-txt"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">requirements.txt</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Django-settings"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Django settings</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Deploy-to-Heroku"><span class="post-toc-number">3.</span> <span class="post-toc-text">Deploy to Heroku</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Suggestion"><span class="post-toc-number">4.</span> <span class="post-toc-text">Suggestion</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Automatically-config-environment"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Automatically config environment</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Use-the-Django-admin"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Use the Django admin</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Prerequisites"><span class="post-toc-text">Prerequisites</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Configure-Heroku"><span class="post-toc-text">Configure Heroku</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Procfile"><span class="post-toc-text">Procfile</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#requirements-txt"><span class="post-toc-text">requirements.txt</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Django-settings"><span class="post-toc-text">Django settings</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Deploy-to-Heroku"><span class="post-toc-text">Deploy to Heroku</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Suggestion"><span class="post-toc-text">Suggestion</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Automatically-config-environment"><span class="post-toc-text">Automatically config environment</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Use-the-Django-admin"><span class="post-toc-text">Use the Django admin</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -365,17 +365,8 @@
                 
     <!-- Paradox Post Header -->
     
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 19 + 1);
-
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-</script>
-
-        
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/django-on-heroku/django.png)">
     
             <p class="article-headline-p">
                 Deploying Django 1.7 to Heroku
@@ -392,7 +383,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -465,12 +456,6 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://yyypasserby.github.io/2014/12/21/django-on-heroku/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                Share to Google+
-            </li>
-        </a>
-    
 
     <!-- Share LinkedIn -->
     
@@ -490,8 +475,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p><img src="/images/django-on-heroku/django.png" alt="Django"></p>
-<p><a href="https://www.djangoproject.com/" target="_blank" rel="noopener">Django 1.7</a> has been long released and its new features of migrations make our web development much easier when dealing with DBs.</p>
+        <p><a href="https://www.djangoproject.com/" target="_blank" rel="noopener">Django 1.7</a> has been long released and its new features of migrations make our web development much easier when dealing with DBs.</p>
 <p><a href="https://www.heroku.com/" target="_blank" rel="noopener">Heroku</a> is a PaaS that managed by <a href="http://www.git-scm.com/" target="_blank" rel="noopener">git</a> and supports Django. If you are a man that don’t want to spend any money on your website like me. I think Heroku is somewhat a good choice for you.</p>
 <p>I used to deploy my website on <a href="https://www.openshift.com/" target="_blank" rel="noopener">Openshift</a> provided by redhat-cloud, however it sometimes was blocked by the GFW. The service of Openshift is great but considering the difficulty of maintainence, I gave up and turn to Heroku.</p>
 <p>But all these PaaS has some several common nature:</p>
@@ -506,54 +490,105 @@
 <p>For the reason above, the PaaS service is recommended to deploy some simple and regualr web app with limited functions, such as some frameworks demo, some homework presentation and etc.</p>
 <h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>The setups of Django project is demonstrated in this <a href="{filename}/2014-12-18-django-and-bower.md">blog</a>.</p>
 <p>So after the creation of a project is done. Your project is maybe just like this.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hellodjango</span><br><span class="line">├── hellodjango</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── settings.py</span><br><span class="line">│   ├── urls.py</span><br><span class="line">│   ├── wsgi.py</span><br><span class="line">├── manage.py</span><br><span class="line">└── venv</span><br></pre></td></tr></table></figure>
-<p>With the instruction given by the <a href="https://devcenter.heroku.com/articles/getting-started-with-django" target="_blank" rel="noopener">Documentation</a>, we know that the Heroku platform need us to do some extra things to deploy your app.</p>
+<pre><code>hellodjango
+├── hellodjango
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+├── manage.py
+└── venv
+</code></pre><p>With the instruction given by the <a href="https://devcenter.heroku.com/articles/getting-started-with-django" target="_blank" rel="noopener">Documentation</a>, we know that the Heroku platform need us to do some extra things to deploy your app.</p>
 <p><strong>First</strong>,  your need to install <a href="https://devcenter.heroku.com/articles/getting-started-with-python#set-up" target="_blank" rel="noopener">Heroku-toolbelt</a>, this contains <code>heroku</code> command to operate and show logs of your project.</p>
 <p><strong>Second</strong>, the default database of Heroku is <strong>Postgresql</strong>, so your need to install <a href="http://postgresapp.com/" target="_blank" rel="noopener">Postgres.app</a> to your computer. I strongly recommend the Mac user to choose the app provided by the official website which could save your a lot of time.</p>
 <p><strong>Thirdly</strong>, especially for Django, you need to install the <a href="https://pypi.python.org/pypi/django-toolbelt/0.0.1" target="_blank" rel="noopener">django-toolbelt</a> to make your website work on Heroku in production state. I found the main thing that django-toolbelt has done is to deal with the static file, like css, js, image and etc. In <a href="https://docs.djangoproject.com/en/1.7/" target="_blank" rel="noopener">documentation</a> of Django, it is not recommended that to use staticfile serve provided by Django for some particular reasons including security. To install django-toolbelt easily, you can type the following command when you are in <strong>virtualenv</strong> mode</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-toolbelt</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">pip install django-toolbelt
+</code></pre>
 <p>If you encounter some problems like <code>could not find pg_config executable</code>, that means your Postgresql is not properly configured. You should add the <code>pg_config</code> into your environment variable. It is here if you use the <strong>Postgres.app</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Postgres.app/Contents/Versions/9.4/bin</span><br></pre></td></tr></table></figure>
-<h2 id="Configure-Heroku"><a href="#Configure-Heroku" class="headerlink" title="Configure Heroku"></a>Configure Heroku</h2><p>After you have done all these, we can start to configure something required by the Heroku to make your app running on the remote.</p>
+<pre><code>/Applications/Postgres.app/Contents/Versions/9.4/bin
+</code></pre><h2 id="Configure-Heroku"><a href="#Configure-Heroku" class="headerlink" title="Configure Heroku"></a>Configure Heroku</h2><p>After you have done all these, we can start to configure something required by the Heroku to make your app running on the remote.</p>
 <h3 id="Procfile"><a href="#Procfile" class="headerlink" title="Procfile"></a>Procfile</h3><p>Procfile is used to configure the web container used to run <strong>WSGI</strong> application. The content is like</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">web: gunicorn &lt;project_name&gt;.wsgi --log-file -</span><br></pre></td></tr></table></figure>
-<p>Now you can type</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foreman start</span><br></pre></td></tr></table></figure>
+<pre><code>web: gunicorn &lt;project_name&gt;.wsgi --log-file -
+</code></pre><p>Now you can type</p>
+<pre><code class="bash">foreman start
+</code></pre>
 <p>to check if your app is running well in the local environment.</p>
 <h3 id="requirements-txt"><a href="#requirements-txt" class="headerlink" title="requirements.txt"></a>requirements.txt</h3><p>This file is used for Heroku to install the dependency for your python web app. After you push your file up to the Heroku server, it will execute</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">pip install -r requirements.txt
+</code></pre>
 <p>to install the dependencies. So what we need to do is</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">pip freeze &gt; requirements.txt
+</code></pre>
 <h3 id="Django-settings"><a href="#Django-settings" class="headerlink" title="Django settings"></a>Django settings</h3><p>There are also something we need to modify in our Django project.</p>
 <p><strong>settings.py</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Parse database configuration from $DATABASE_URL</span></span><br><span class="line"><span class="keyword">import</span> dj_database_url</span><br><span class="line">DATABASES[<span class="string">'default'</span>] = dj_database_url.config()</span><br><span class="line"><span class="comment"># Honor the 'X-Forwarded-Proto' header for request.is_secure()</span></span><br><span class="line">SECURE_PROXY_SSL_HEADER = (<span class="string">'HTTP_X_FORWARDED_PROTO'</span>, <span class="string">'https'</span>)</span><br><span class="line"><span class="comment"># Allow all host headers</span></span><br><span class="line">ALLOWED_HOSTS = [<span class="string">'*'</span>]</span><br><span class="line"><span class="comment"># Static asset configuration</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="comment"># Not essential because the settings.py in Django 1.7 has already </span></span><br><span class="line"><span class="comment"># provided the definition of BASE_DIR and that seems to be more correct</span></span><br><span class="line"><span class="comment"># BASE_DIR = os.path.dirname(os.path.abspath(__file__))</span></span><br><span class="line">STATIC_ROOT = <span class="string">'staticfiles'</span></span><br><span class="line">STATIC_URL = <span class="string">'/static/'</span></span><br><span class="line">STATICFILES_DIRS = (</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">'static'</span>),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<pre><code class="python"># Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES[&#39;default&#39;] = dj_database_url.config()
+# Honor the &#39;X-Forwarded-Proto&#39; header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = (&#39;HTTP_X_FORWARDED_PROTO&#39;, &#39;https&#39;)
+# Allow all host headers
+ALLOWED_HOSTS = [&#39;*&#39;]
+# Static asset configuration
+import os
+# Not essential because the settings.py in Django 1.7 has already 
+# provided the definition of BASE_DIR and that seems to be more correct
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = &#39;staticfiles&#39;
+STATIC_URL = &#39;/static/&#39;
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, &#39;static&#39;),
+)
+</code></pre>
 <p><strong>wsgi.py</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.core.wsgi <span class="keyword">import</span> get_wsgi_application</span><br><span class="line"><span class="keyword">from</span> dj_static <span class="keyword">import</span> Cling</span><br><span class="line"></span><br><span class="line">application = Cling(get_wsgi_application())</span><br></pre></td></tr></table></figure>
+<pre><code class="python">from django.core.wsgi import get_wsgi_application
+from dj_static import Cling
+
+application = Cling(get_wsgi_application())
+</code></pre>
 <h2 id="Deploy-to-Heroku"><a href="#Deploy-to-Heroku" class="headerlink" title="Deploy to Heroku"></a>Deploy to Heroku</h2><p>Now your file structure is like</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hellodjango</span><br><span class="line">├── Procfile</span><br><span class="line">├── hellodjango</span><br><span class="line">├── manage.py</span><br><span class="line">├── requirements.txt</span><br><span class="line">└── venv</span><br></pre></td></tr></table></figure>
-<p>We know that Heroku use git to manage the file upload, so the first thing to do is to initiate a git repo and make all the things done committed to the repo.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m<span class="string">'init commit'</span></span><br></pre></td></tr></table></figure>
+<pre><code>hellodjango
+├── Procfile
+├── hellodjango
+├── manage.py
+├── requirements.txt
+└── venv
+</code></pre><p>We know that Heroku use git to manage the file upload, so the first thing to do is to initiate a git repo and make all the things done committed to the repo.</p>
+<pre><code class="bash">git init
+git add .
+git commit -m&#39;init commit&#39;
+</code></pre>
 <p>The <code>.gitignore</code> file could contain these several lines.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">venv/</span><br><span class="line">*.pyc</span><br><span class="line">staticfiles/</span><br></pre></td></tr></table></figure>
-<p>After the repo is set up, we shall create a heroku repo and add its url to our git remote repo. All these operation is encapsulated in one command.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heroku create</span><br></pre></td></tr></table></figure>
+<pre><code>venv/
+*.pyc
+staticfiles/
+</code></pre><p>After the repo is set up, we shall create a heroku repo and add its url to our git remote repo. All these operation is encapsulated in one command.</p>
+<pre><code class="bash">heroku create
+</code></pre>
 <p>If you are the first time to use <strong>heroku-toolbelt</strong>, you had better login first</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heroku login</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">heroku login
+</code></pre>
 <p>Input your account and password according to the info.</p>
 <p>Then you need to push your repo to the master branch of the remote repo in Heroku.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push heroku master</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">git push heroku master
+</code></pre>
 <p>Then, after Heroku make a the remote environment set up, you can now visit your website using <code>heroku open</code> and try to rename it using <code>heroku apps:rename &lt;new_app_name&gt;</code>.</p>
 <p>There are also many useful commands to control your website, to see more detailed information, please see the <a href="https://devcenter.heroku.com/articles/getting-started-with-python" target="_blank" rel="noopener">Documentation</a>.</p>
 <h2 id="Suggestion"><a href="#Suggestion" class="headerlink" title="Suggestion"></a>Suggestion</h2><h3 id="Automatically-config-environment"><a href="#Automatically-config-environment" class="headerlink" title="Automatically config environment"></a>Automatically config environment</h3><p>The modification in <strong>settings.py</strong> may make your local debugging not performing right. So I added something more to make the changes just work in the remote.</p>
 <ol>
 <li><p>Create a file naming <code>.env</code>, and type these</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ENV=LOCAL</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>ENV=LOCAL
+</code></pre></li>
 <li><p>Add one line before the modification and the final content shall be</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="string">'LOCAL'</span> != os.environ.get(<span class="string">'ENV'</span>, <span class="string">'HEROKU'</span>):</span><br><span class="line"><span class="comment"># Parse database configuration from $DATABASE_URL</span></span><br><span class="line">   <span class="keyword">import</span> dj_database_url</span><br><span class="line">   DATABASES[<span class="string">'default'</span>] = dj_database_url.config()</span><br><span class="line">   ...</span><br></pre></td></tr></table></figure>
+<pre><code class="python">if &#39;LOCAL&#39; != os.environ.get(&#39;ENV&#39;, &#39;HEROKU&#39;):
+# Parse database configuration from $DATABASE_URL
+ import dj_database_url
+ DATABASES[&#39;default&#39;] = dj_database_url.config()
+ ...
+</code></pre>
 </li>
 <li><p>Config the remote environment variable, type the following command under your app root folder</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heroku config:<span class="built_in">set</span> ENV=HEROKU</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">heroku config:set ENV=HEROKU
+</code></pre>
 </li>
 </ol>
 <p>These operation just add an environment variable to the development env and production env and make the app itself to detect the environment changes.</p>
@@ -562,7 +597,8 @@
 <li><p>Configure the static files properly and include the related apps and middlewares in the corresponding settings.</p>
 </li>
 <li><p>Create a superuser of the remote app. Heroku provide us a way to execute instructions to the remote user. Just like,</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heroku run python manage.py createsuperuser</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">heroku run python manage.py createsuperuser
+</code></pre>
 <p>Then it will be instruct you to create a superuser interactively like you just do locally.</p>
 <p>You know can visit the <code>&lt;app_url&gt;/admin</code> to operate your remote database happily.</p>
 </li>
@@ -587,7 +623,7 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2015/03/17/project-online-bookshop/" id="post_nav-newer" class="prev-content">
+        <a href="/2015/03/17/project-compiler-lab/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -639,12 +675,12 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Yiyun Yao's avatar">
+        <img src="/img/avatar.jpg" alt="Yiyun Yao's avatar">
     </div>
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
+        yiyunyao@live.com
         <b class="caret"></b>
     </a>
 </div>
@@ -701,8 +737,33 @@
 
     <!-- Categories  -->
     
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                Categories
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/practice/">practice<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/project/">project<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/setup/">setup<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/web/">web<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/web/backend/">backend<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/web/frontend/">frontend<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
 
     <!-- Pages  -->
+    
+        <li>
+            <a href="/resume" title="Resume">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                Resume
+            </a>
+        </li>
+        
     
 
     <!-- Article Number  -->
@@ -777,29 +838,11 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -807,14 +850,32 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Instagram -->
     
+        <a href="https://www.instagram.com/yyypasserby/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
 
     <!-- Tumblr -->
     
 
     <!-- Github -->
     
+        <a href="https://github.com/yyypasserby" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
 
     <!-- LinkedIn -->
+    
+        <a href="https://www.linkedin.com/in/yyypasserby/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-linkedin">
+                <span class="visuallyhidden">LinkedIn</span>
+            </button><!--
+     --></a>
     
 
     <!-- Zhihu -->
@@ -893,6 +954,10 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
 
 
 
@@ -915,6 +980,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
 
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
 
 <!-- Window Load -->
 <!-- add class for prettify -->
@@ -925,6 +994,10 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
     
 </script>
 

@@ -239,7 +239,7 @@
 
     
         <meta property="article:published_time" content="Thu Dec 18 2014 11:22:33 GMT-0800">
-        <meta property="article:modified_time" content="Fri Jul 20 2018 14:36:39 GMT-0700">
+        <meta property="article:modified_time" content="Sat Jul 21 2018 16:38:55 GMT-0700">
     
 
     <!-- The Twitter Card protocol -->
@@ -262,15 +262,15 @@
     "mainEntityOfPage": "https://yyypasserby.github.io/2014/12/18/django-and-bower/index.html",
     "headline": "Practices on Django & Bower",
     "datePublished": "Thu Dec 18 2014 11:22:33 GMT-0800",
-    "dateModified": "Fri Jul 20 2018 14:36:39 GMT-0700",
+    "dateModified": "Sat Jul 21 2018 16:38:55 GMT-0700",
     "author": {
         "@type": "Person",
         "name": "Yiyun Yao",
         "image": {
             "@type": "ImageObject",
-            "url": "/img/avatar.png"
+            "url": "/img/avatar.jpg"
         },
-        "description": "Hi, nice to meet you"
+        "description": "May your choices reflect your hopes, not your fears."
     },
     "publisher": {
         "@type": "Organization",
@@ -346,7 +346,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Virtualenv"><span class="post-toc-number">1.</span> <span class="post-toc-text">Virtualenv</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Django"><span class="post-toc-number">2.</span> <span class="post-toc-text">Django</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bower"><span class="post-toc-number">3.</span> <span class="post-toc-text">Bower</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Virtualenv"><span class="post-toc-text">Virtualenv</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Django"><span class="post-toc-text">Django</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bower"><span class="post-toc-text">Bower</span></a></li></ol>
     </ul>
     
 
@@ -365,17 +365,8 @@
                 
     <!-- Paradox Post Header -->
     
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 19 + 1);
-
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-</script>
-
-        
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/django-and-bower/django.png)">
     
             <p class="article-headline-p">
                 Practices on Django & Bower
@@ -392,7 +383,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -465,12 +456,6 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://yyypasserby.github.io/2014/12/18/django-and-bower/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                Share to Google+
-            </li>
-        </a>
-    
 
     <!-- Share LinkedIn -->
     
@@ -490,41 +475,82 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p><img src="/images/django-and-bower/django.png" alt="Django"></p>
-<p>As a front-end developer, most of you may know <a href="http://bower.io" target="_blank" rel="noopener">bower</a> these days. Bower is a powerful tools to make your front-end more modular and easy to manage.</p>
+        <p>As a front-end developer, most of you may know <a href="http://bower.io" target="_blank" rel="noopener">bower</a> these days. Bower is a powerful tools to make your front-end more modular and easy to manage.</p>
 <p>And <a href="https://www.djangoproject.com/" target="_blank" rel="noopener">Django</a> is also very popular in the back-end deveopment. <a href="http://www.douban.com/" target="_blank" rel="noopener">Douban</a>, <a href="http://www.zhihu.com/" target="_blank" rel="noopener">Zhihu</a> all uses Django as their backend framework.</p>
 <p>Today, I am just going to talk about something I concluded from my project in cooperate Django and bower and they really make my website dev much more convenient.</p>
 <h2 id="Virtualenv"><a href="#Virtualenv" class="headerlink" title="Virtualenv"></a>Virtualenv</h2><p>This tool is always used in many python project. Python is undoubtedly a great language with diversity, but it also encounter many problems as its diversity. We may frequently find some package conflicts with each other, that is because the package is design by different people, they won’t communicate with each other until facing conflict. So usually we use the <a href="https://virtualenv.pypa.io/" target="_blank" rel="noopener">virtualenv</a> to avoid these uncompatible problems as much as we can. After you set up your <a href="https://pypi.python.org/pypi/setuptools" target="_blank" rel="noopener">setuptools</a> and <a href="https://pypi.python.org/pypi/pip/" target="_blank" rel="noopener">pip</a>, you can easily get virtualenv by</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">pip install virtualenv
+</code></pre>
 <p>After installing virtualenv, you can set up a individual virtual environment for your project.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">virtualenv env</span><br><span class="line"><span class="built_in">source</span> env/bin/activate</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">virtualenv env
+source env/bin/activate
+</code></pre>
 <p>And all the things you doing after is just change the environment in a virtual way, it won’t conflict with your other packages if they are not in the same environment. To my own point of view, I will start up a brand new environment for a new project even some of its dependency overlaps with my project before. You could also use the same virtual env when doing all your Django project. It’s all up to you.</p>
 <h2 id="Django"><a href="#Django" class="headerlink" title="Django"></a>Django</h2><p>You can install Django in your virtual environment now. </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">pip install django
+</code></pre>
 <p>The lastest version of Django is 1.7, and its has a great update in 1.7 about the model operation. It has merge the function of <a href="http://south.aeracode.org/" target="_blank" rel="noopener">south</a> project into it and make the modification of the models more convenient. This feature still has some improvements. The process is a little bit different when we build our tables. In the former versions, we do something like following</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># app/models.py</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Books</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.TextFields()</span><br><span class="line"></span><br><span class="line"><span class="comment"># project/settings.py</span></span><br><span class="line">INSTALLED_APPS = (</span><br><span class="line">    ...</span><br><span class="line">    <span class="string">'app'</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<pre><code class="python"># app/models.py
+class Books(models.Model):
+    name = models.TextFields()
+
+# project/settings.py
+INSTALLED_APPS = (
+    ...
+    &#39;app&#39;,
+)
+</code></pre>
 <p>And do these in the command</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py syncdb</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">python manage.py syncdb
+</code></pre>
 <p>And all your models will sync to your databases.<br><strong>But now in 1.7</strong>, we will have something more to do, <strong>instead of the command above.</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations app</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">python manage.py makemigrations app
+</code></pre>
 <p>First we should make the migrations of the app and records them in the <code>migration</code> folder. The structure is just like the following</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">migrations</span><br><span class="line">├── 0001_initial.py</span><br><span class="line">├── 0001_initial.pyc</span><br><span class="line">├── __init__.py</span><br><span class="line">└── __init__.pyc</span><br></pre></td></tr></table></figure>
-<p>The file produced by this step is to make a image of this version and Django could identify the future changes by comparison with this image.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py migrate app</span><br></pre></td></tr></table></figure>
+<pre><code>migrations
+├── 0001_initial.py
+├── 0001_initial.pyc
+├── __init__.py
+└── __init__.pyc
+</code></pre><p>The file produced by this step is to make a image of this version and Django could identify the future changes by comparison with this image.</p>
+<pre><code class="bash">python manage.py migrate app
+</code></pre>
 <p>The operation is just like the <code>syncdb</code> in the former version. The models are created in the databases.</p>
 <p>If you are using <a href="http://sqlite.org/" target="_blank" rel="noopener">sqlite3</a>, you can use <code>.tables</code> command to show all the tables in your databases.</p>
 <h2 id="Bower"><a href="#Bower" class="headerlink" title="Bower"></a>Bower</h2><p>To my personal custom, in some small projects, I would like to make my utils static files that used in all apps in a folder in the root level. Just like</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">├── db.sqlite3</span><br><span class="line">├── app</span><br><span class="line">├── manage.py</span><br><span class="line">├── static</span><br><span class="line">├── template</span><br><span class="line">└── project</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">├── db.sqlite3
+├── app
+├── manage.py
+├── static
+├── template
+└── project
+</code></pre>
 <p>This static folder is used to store bower repository for me.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> static</span><br><span class="line">bower init</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">cd static
+bower init
+</code></pre>
 <p>Then you can install any front-end framework as you want. To me, these three framework is necessary,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bower install requirejs --save</span><br><span class="line">bower install bootstrap --save</span><br><span class="line">bower install jquery --save</span><br></pre></td></tr></table></figure>
-<p>After installed these packages, we could use either <code>&lt;script&gt;</code> ways or <code>rejuirejs</code> ways to include them in our django templates. I’m just going to show you the basic way.</p>
+<pre><code>bower install requirejs --save
+bower install bootstrap --save
+bower install jquery --save
+</code></pre><p>After installed these packages, we could use either <code>&lt;script&gt;</code> ways or <code>rejuirejs</code> ways to include them in our django templates. I’m just going to show you the basic way.</p>
 <p>Django has several ways to deal with static files. <code>STATIC_ROOT</code> and <code>STATICFILES_DIRS</code> are two stantard methods. When we use static file, we must ensure an app is activated in <code>INSTALLED_APPS</code>.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = (</span><br><span class="line">    <span class="string">'django.contrib.staticfiles'</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">INSTALLED_APPS = (
+    &#39;django.contrib.staticfiles&#39;,
+)
+</code></pre>
 <p>I prefer to store all my dependency in a global static folder, so I just need to add</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># project/settings.py</span></span><br><span class="line">STATICFILES_DIRS = (</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">'static'</span>),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--templates/index.html--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    &#123;% raw %&#125;&#123;% load staticfiles %&#125;&#123;% endraw %&#125;</span><br><span class="line">    &#123;% raw %&#125;<span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"&#123;% static "</span><span class="attr">bower_components</span>/<span class="attr">path</span>/<span class="attr">to</span>/<span class="attr">staticfiles</span>" %&#125;"&gt;</span>&#123;% endraw %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="python"># project/settings.py
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, &#39;static&#39;),
+)
+</code></pre>
+<pre><code class="html">&lt;!--templates/index.html--&gt;
+&lt;head&gt;
+    {% raw %}{% load staticfiles %}{% endraw %}
+    {% raw %}<link href="{% static " bower_components="" path="" to="" staticfiles"="" %}"="">{% endraw %}
+&lt;/head&gt;
+</code></pre>
 <p>Then the engine could find these static files for me.</p>
 
         
@@ -598,12 +624,12 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Yiyun Yao's avatar">
+        <img src="/img/avatar.jpg" alt="Yiyun Yao's avatar">
     </div>
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
+        yiyunyao@live.com
         <b class="caret"></b>
     </a>
 </div>
@@ -660,8 +686,33 @@
 
     <!-- Categories  -->
     
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                Categories
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/practice/">practice<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/project/">project<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/setup/">setup<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/web/">web<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/web/backend/">backend<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/web/frontend/">frontend<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
 
     <!-- Pages  -->
+    
+        <li>
+            <a href="/resume" title="Resume">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                Resume
+            </a>
+        </li>
+        
     
 
     <!-- Article Number  -->
@@ -736,29 +787,11 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--left-section sns-list">
     <!-- Twitter -->
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Facebook -->
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
 
     <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
     
 
     <!-- Weibo -->
@@ -766,14 +799,32 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Instagram -->
     
+        <a href="https://www.instagram.com/yyypasserby/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
 
     <!-- Tumblr -->
     
 
     <!-- Github -->
     
+        <a href="https://github.com/yyypasserby" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
 
     <!-- LinkedIn -->
+    
+        <a href="https://www.linkedin.com/in/yyypasserby/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-linkedin">
+                <span class="visuallyhidden">LinkedIn</span>
+            </button><!--
+     --></a>
     
 
     <!-- Zhihu -->
@@ -852,6 +903,10 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
 
 
 
@@ -874,6 +929,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
 
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
 
 <!-- Window Load -->
 <!-- add class for prettify -->
@@ -884,6 +943,10 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
     
 </script>
 
