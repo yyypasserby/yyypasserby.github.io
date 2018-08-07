@@ -46,15 +46,15 @@
     <link href="https://yyypasserby.github.io/2017/05/31/my-setup/"/>
     <id>https://yyypasserby.github.io/2017/05/31/my-setup/</id>
     <published>2017-05-31T18:22:33.000Z</published>
-    <updated>2018-07-22T00:08:53.123Z</updated>
+    <updated>2018-08-07T22:06:26.104Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Oh-My-Zsh"><a href="#Oh-My-Zsh" class="headerlink" title="Oh My Zsh"></a>Oh My Zsh</h2><p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">https://github.com/robbyrussell/oh-my-zsh</a></p><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><pre><code class="sh">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;brew install autojump</code></pre><h5 id="Installation-Permission-Problem"><a href="#Installation-Permission-Problem" class="headerlink" title="Installation Permission Problem"></a>Installation Permission Problem</h5><p>(Github)[<a href="https://github.com/Homebrew/brew/issues/3228]" target="_blank" rel="noopener">https://github.com/Homebrew/brew/issues/3228]</a></p><h3 id="Configure"><a href="#Configure" class="headerlink" title="Configure"></a>Configure</h3><p>Add following lines to <code>.zshrc</code></p><pre><code class="sh">plugins=(git cpp autojump osx)[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; . ~/.autojump/etc/profile.d/autojump.shif [[ &quot;$TERM_PROGRAM&quot; == &quot;nuclide&quot; ]]; then  export EDITOR=&#39;atom --wait&#39;else  export EDITOR=vim # your favorite editor herefi</code></pre><h4 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a><a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank" rel="noopener">zsh-autosuggestions</a></h4><pre><code class="sh">git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code></pre><p>Add following lines to <code>.zshrc</code></p><pre><code class="sh">plugins=(zsh-autosuggestions)</code></pre><h2 id="Oh-My-Tmux"><a href="#Oh-My-Tmux" class="headerlink" title="Oh My Tmux"></a>Oh My Tmux</h2><p><a href="https://github.com/gpakosz/.tmux" target="_blank" rel="noopener">https://github.com/gpakosz/.tmux</a></p><h3 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h3><pre><code class="sh">cdgit clone https://github.com/gpakosz/.tmux.gitln -s -f .tmux/.tmux.confcp .tmux/.tmux.conf.local .tmux source-file ~/.tmux.conf</code></pre><pre><code>tls=&#39;tmux ls&#39;tat=&#39;tmux attach -t&#39;trn=&#39;tmux rename&#39;</code></pre><h2 id="spf13-vim"><a href="#spf13-vim" class="headerlink" title="spf13-vim"></a>spf13-vim</h2><p><a href="https://github.com/spf13/spf13-vim" target="_blank" rel="noopener">https://github.com/spf13/spf13-vim</a></p><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><pre><code class="sh">curl https://j.mp/spf13-vim3 -L &gt; spf13-vim.sh &amp;&amp; sh spf13-vim.sh</code></pre><h3 id="Install-2"><a href="#Install-2" class="headerlink" title="Install"></a>Install</h3><p>Open vim and run</p><pre><code class="vim">:PluginInstall</code></pre><h3 id="Configure-1"><a href="#Configure-1" class="headerlink" title="Configure"></a>Configure</h3><p>Modify <code>.vimrc.bundles</code></p><pre><code class="vim">let g:spf13_bundle_groups=[&#39;general&#39;, &#39;writing&#39;, &#39;youcompleteme&#39;, &#39;programming&#39;, &#39;python&#39;, &#39;javascript&#39;, &#39;html&#39;, &#39;misc&#39;,]</code></pre><p>Install YouCompleteMe (cpp &amp; javascript)</p><pre><code class="sh">cd ~/.vim/bundle/YouCompleteMe./install.py --clang-completer./install.py --tern-completer</code></pre><p>Add settings for YouCompleteMe in <code>.vimrc.local</code></p><pre><code class="vim">let g:ycm_global_ycm_extra_conf = &quot;~/.vim/.ycm_extra_conf.py&quot;let g:ycm_confirm_extra_conf = 0let g:ycm_seed_identifiers_with_syntax = 1let g:ycm_collect_identifiers_from_tag_files = 1let g:ycm_min_num_of_chars_for_completion = 1set completeopt=longest,menu</code></pre><p>Get <code>.ycm_extra_conf.py</code></p><pre><code class="sh">cdwget https://raw.githubusercontent.com/Valloric/ycmd/master/cpp/ycm/.ycm_extra_conf.py</code></pre><p>Add the path under <code>include &lt;...&gt;</code> to the <code>.ycm_extra_conf.py</code> with <code>-isystem</code></p><pre><code class="sh">echo | clang -v -E -x c++ -</code></pre><p>Open vim and restart YcmServer</p><pre><code class="vim">:YcmRestartServer</code></pre><h4 id="optional-Add-google-vim-codefmt"><a href="#optional-Add-google-vim-codefmt" class="headerlink" title="[optional] Add google/vim-codefmt"></a>[optional] Add <a href="https://github.com/google/vim-codefmt" target="_blank" rel="noopener">google/vim-codefmt</a></h4><p>Add plugins to <code>.vimrc.bundles.local</code> and run <code>:PluginInstall</code></p><pre><code class="vim">Plugin &#39;google/vim-maktaba&#39;Plugin &#39;google/vim-codefmt&#39;Plugin &#39;google/vim-glaive&#39;</code></pre><p>Add settings to <code>.vimrc.local</code></p><pre><code class="vim">call glaive#Install()Glaive codefmt plugin[mappings]Glaive codefmt google_java_executable=&quot;java -jar /path/to/google-java-format-VERSION-all-deps.jar&quot;Glaive codefmt clang_format_style=&quot;google&quot;augroup autoformat_settings  autocmd FileType bzl AutoFormatBuffer buildifier  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format  autocmd FileType dart AutoFormatBuffer dartfmt  autocmd FileType go AutoFormatBuffer gofmt  autocmd FileType gn AutoFormatBuffer gn  autocmd FileType html,css,json AutoFormatBuffer js-beautify  autocmd FileType java AutoFormatBuffer google-java-format  autocmd FileType python AutoFormatBuffer yapf  &quot; Alternative: autocmd FileType python AutoFormatBuffer autopep8augroup END&quot; vim-javascriptautocmd Filetype javascript setlocal ts=2 sts=2 sw=2</code></pre><p>Unbind existing key mapping of <code>&lt;Leader&gt;=</code> in <code>.vimrc</code></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Oh-My-Zsh"><a href="#Oh-My-Zsh" class="headerlink" title="Oh My Zsh"></a>Oh My Zsh</h1><p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">https://github.com/robbyrussell/oh-my-zsh</a></p><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><pre><code class="sh">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;brew install autojump</code></pre><h3 id="Installation-Permission-Problem"><a href="#Installation-Permission-Problem" class="headerlink" title="Installation Permission Problem"></a>Installation Permission Problem</h3><p>(Github)[<a href="https://github.com/Homebrew/brew/issues/3228]" target="_blank" rel="noopener">https://github.com/Homebrew/brew/issues/3228]</a></p><h2 id="Configure"><a href="#Configure" class="headerlink" title="Configure"></a>Configure</h2><p>Add following lines to <code>.zshrc</code></p><pre><code class="sh">plugins=(git cpp autojump osx)[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; . ~/.autojump/etc/profile.d/autojump.shif [[ &quot;$TERM_PROGRAM&quot; == &quot;nuclide&quot; ]]; then  export EDITOR=&#39;atom --wait&#39;else  export EDITOR=vim # your favorite editor herefi</code></pre><h3 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a><a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank" rel="noopener">zsh-autosuggestions</a></h3><pre><code class="sh">git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code></pre><p>Add following lines to <code>.zshrc</code></p><pre><code class="sh">plugins=(zsh-autosuggestions)</code></pre><h1 id="Oh-My-Tmux"><a href="#Oh-My-Tmux" class="headerlink" title="Oh My Tmux"></a>Oh My Tmux</h1><p><a href="https://github.com/gpakosz/.tmux" target="_blank" rel="noopener">https://github.com/gpakosz/.tmux</a></p><h2 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h2><pre><code class="sh">cdgit clone https://github.com/gpakosz/.tmux.gitln -s -f .tmux/.tmux.confcp .tmux/.tmux.conf.local .tmux source-file ~/.tmux.conf</code></pre><p>Add following lines to <code>.zshrc</code>.</p><pre><code>tls=&#39;tmux ls&#39;tat=&#39;tmux attach -t&#39;trn=&#39;tmux rename&#39;</code></pre><p>Also if you want the tmux works with the Mac copy/paste. Please install <a href="https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard" target="_blank" rel="noopener">reattach-to-user-namespace</a></p><h1 id="spf13-vim"><a href="#spf13-vim" class="headerlink" title="spf13-vim"></a>spf13-vim</h1><p><a href="https://github.com/spf13/spf13-vim" target="_blank" rel="noopener">https://github.com/spf13/spf13-vim</a></p><h2 id="Install-2"><a href="#Install-2" class="headerlink" title="Install"></a>Install</h2><pre><code class="sh">curl https://j.mp/spf13-vim3 -L &gt; spf13-vim.sh &amp;&amp; sh spf13-vim.sh</code></pre><p>Open vim and run</p><pre><code class="vim">:PluginInstall</code></pre><h2 id="Configure-1"><a href="#Configure-1" class="headerlink" title="Configure"></a>Configure</h2><p>Modify <code>.vimrc.bundles</code></p><pre><code class="vim">let g:spf13_bundle_groups=[&#39;general&#39;, &#39;writing&#39;, &#39;youcompleteme&#39;, &#39;programming&#39;, &#39;python&#39;, &#39;javascript&#39;, &#39;html&#39;, &#39;misc&#39;,]</code></pre><p>Install YouCompleteMe (cpp &amp; javascript)</p><pre><code class="sh">cd ~/.vim/bundle/YouCompleteMe./install.py --clang-completer./install.py --tern-completer</code></pre><p>Add settings for YouCompleteMe in <code>.vimrc.local</code></p><pre><code class="vim">let g:ycm_global_ycm_extra_conf = &quot;~/.vim/.ycm_extra_conf.py&quot;let g:ycm_confirm_extra_conf = 0let g:ycm_seed_identifiers_with_syntax = 1let g:ycm_collect_identifiers_from_tag_files = 1let g:ycm_min_num_of_chars_for_completion = 1set completeopt=longest,menu</code></pre><p>Get <code>.ycm_extra_conf.py</code></p><pre><code class="sh">cdwget https://raw.githubusercontent.com/Valloric/ycmd/master/cpp/ycm/.ycm_extra_conf.py</code></pre><p>Add the path under <code>include &lt;...&gt;</code> to the <code>.ycm_extra_conf.py</code> with <code>-isystem</code></p><pre><code class="sh">echo | clang -v -E -x c++ -</code></pre><p>Open vim and restart YcmServer</p><pre><code class="vim">:YcmRestartServer</code></pre><h2 id="optional-Add-google-vim-codefmt"><a href="#optional-Add-google-vim-codefmt" class="headerlink" title="[optional] Add google/vim-codefmt"></a>[optional] Add <a href="https://github.com/google/vim-codefmt" target="_blank" rel="noopener">google/vim-codefmt</a></h2><p>Add plugins to <code>.vimrc.bundles.local</code> and run <code>:PluginInstall</code></p><pre><code class="vim">Plugin &#39;google/vim-maktaba&#39;Plugin &#39;google/vim-codefmt&#39;Plugin &#39;google/vim-glaive&#39;</code></pre><p>Add settings to <code>.vimrc.local</code></p><pre><code class="vim">call glaive#Install()Glaive codefmt plugin[mappings]Glaive codefmt google_java_executable=&quot;java -jar /path/to/google-java-format-VERSION-all-deps.jar&quot;Glaive codefmt clang_format_style=&quot;google&quot;augroup autoformat_settings  autocmd FileType bzl AutoFormatBuffer buildifier  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format  autocmd FileType dart AutoFormatBuffer dartfmt  autocmd FileType go AutoFormatBuffer gofmt  autocmd FileType gn AutoFormatBuffer gn  autocmd FileType html,css,json AutoFormatBuffer js-beautify  autocmd FileType java AutoFormatBuffer google-java-format  autocmd FileType python AutoFormatBuffer yapf  &quot; Alternative: autocmd FileType python AutoFormatBuffer autopep8augroup END&quot; vim-javascriptautocmd Filetype javascript setlocal ts=2 sts=2 sw=2</code></pre><p>Unbind existing key mapping of <code>&lt;Leader&gt;=</code> in <code>.vimrc</code></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;Oh-My-Zsh&quot;&gt;&lt;a href=&quot;#Oh-My-Zsh&quot; class=&quot;headerlink&quot; title=&quot;Oh My Zsh&quot;&gt;&lt;/a&gt;Oh My Zsh&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/robbyrussell/o
+        &lt;h1 id=&quot;Oh-My-Zsh&quot;&gt;&lt;a href=&quot;#Oh-My-Zsh&quot; class=&quot;headerlink&quot; title=&quot;Oh My Zsh&quot;&gt;&lt;/a&gt;Oh My Zsh&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/robbyrussell/o
       
     
     </summary>
@@ -157,32 +157,6 @@
   </entry>
   
   <entry>
-    <title>Online Bookshop</title>
-    <link href="https://yyypasserby.github.io/2015/03/17/project-online-bookshop/"/>
-    <id>https://yyypasserby.github.io/2015/03/17/project-online-bookshop/</id>
-    <published>2015-03-17T18:22:33.000Z</published>
-    <updated>2018-07-20T21:36:39.927Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>Online Bookshop: <a href="https://online-bookshop.herokuapp.com/" target="_blank" rel="noopener">https://online-bookshop.herokuapp.com/</a></li><li>Github: <a href="https://github.com/yyypasserby/OnlineBookshop" target="_blank" rel="noopener">yyypasserby/OnlineBookshop</a></li></ul><p><img src="/images/project-online-bookshop/index.png" alt="Online Bookshop"></p><p><img src="/images/project-online-bookshop/accounts.png" alt="Online Bookshop Accounts"></p><p><img src="/images/project-online-bookshop/comments.png" alt="Online Bookshop Comments"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ul&gt;
-&lt;li&gt;Online Bookshop: &lt;a href=&quot;https://online-bookshop.herokuapp.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://online-bookshop.herokuapp.
-      
-    
-    </summary>
-    
-      <category term="project" scheme="https://yyypasserby.github.io/categories/project/"/>
-    
-    
-      <category term="django" scheme="https://yyypasserby.github.io/tags/django/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Compiler Lab</title>
     <link href="https://yyypasserby.github.io/2015/03/17/project-compiler-lab/"/>
     <id>https://yyypasserby.github.io/2015/03/17/project-compiler-lab/</id>
@@ -205,6 +179,32 @@
     
     
       <category term="compiler" scheme="https://yyypasserby.github.io/tags/compiler/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Online Bookshop</title>
+    <link href="https://yyypasserby.github.io/2015/03/17/project-online-bookshop/"/>
+    <id>https://yyypasserby.github.io/2015/03/17/project-online-bookshop/</id>
+    <published>2015-03-17T18:22:33.000Z</published>
+    <updated>2018-07-20T21:36:39.927Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>Online Bookshop: <a href="https://online-bookshop.herokuapp.com/" target="_blank" rel="noopener">https://online-bookshop.herokuapp.com/</a></li><li>Github: <a href="https://github.com/yyypasserby/OnlineBookshop" target="_blank" rel="noopener">yyypasserby/OnlineBookshop</a></li></ul><p><img src="/images/project-online-bookshop/index.png" alt="Online Bookshop"></p><p><img src="/images/project-online-bookshop/accounts.png" alt="Online Bookshop Accounts"></p><p><img src="/images/project-online-bookshop/comments.png" alt="Online Bookshop Comments"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;Online Bookshop: &lt;a href=&quot;https://online-bookshop.herokuapp.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://online-bookshop.herokuapp.
+      
+    
+    </summary>
+    
+      <category term="project" scheme="https://yyypasserby.github.io/categories/project/"/>
+    
+    
+      <category term="django" scheme="https://yyypasserby.github.io/tags/django/"/>
     
   </entry>
   
